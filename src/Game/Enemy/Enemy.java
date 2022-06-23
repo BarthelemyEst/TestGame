@@ -3,10 +3,12 @@ package Game.Enemy;
 public class Enemy {
     private String name;
     private int HP;
+    private int damage;
 
-    public Enemy(String name, int HP) {
+    public Enemy(String name, int HP, int damage) {
         this.name = name;
         this.HP = HP;
+        this.damage = damage;
     }
 
     public void changeHP(int damage) {
@@ -27,5 +29,13 @@ public class Enemy {
 
     public void setHP(int HP) {
         this.HP = HP;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

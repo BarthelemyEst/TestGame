@@ -1,10 +1,9 @@
 package Game.Game;
 
-import Game.Card.Card;
+
+import Game.Enemy.Enemy;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class StartGame {
@@ -39,6 +38,9 @@ public class StartGame {
                     default:
                         System.out.println("error, chose 1 or 2");
                 }
+            }
+            for (Enemy enemy : game.getLevels().get(level).getEnemies()) {
+                game.getHero().reduceHP(enemy.getDamage());
             }
         }
     }

@@ -12,6 +12,7 @@ import java.util.Random;
 
 
 public class Hero {
+    private int HP;
     private String name;
     private Deck deck = new Deck();
     private List<Card> hand = new ArrayList<>();
@@ -86,12 +87,14 @@ public class Hero {
     }
 
     public Hero() {
+        this.HP = 100;
         this.setDeck(new Deck());
         drawCards();
     }
 
     public void heroStatus() {
-        System.out.println(this.Energy);
+        System.out.println("Energy : " + this.Energy);
+        System.out.println("HP : " + this.HP);
     }
 
     public List<Card> usableCards() {
@@ -102,5 +105,17 @@ public class Hero {
             }
         }
         return usableCards;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
+    public void reduceHP(int damage) {
+        this.HP -= damage;
     }
 }
