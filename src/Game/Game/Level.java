@@ -71,7 +71,10 @@ public class Level {
         return enemies;
     }
 
-    public boolean isLevelFinished() {
+    public boolean isLevelFinished(Game game) {
+        if (game.getHero().getHP() <= 0) {
+            return true;
+        }
         for (Enemy enemy : this.enemies) {
             if (enemy.getHP() > 0) {
                 return false;
