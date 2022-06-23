@@ -15,14 +15,14 @@ public class StartGame {
         game.getHero().addCard(hit);
         game.getHero().addCard(struck);
         
-        game.getLevels().get(0).levelStatus();
+        game.getLevels().get(5).levelStatus();
 
-        game.getHero().getDeck().getCards().get(1).Effect(game.getLevels().get(0).enemies, game.getHero());
+        game.getHero().getDeck().getCards().get(1).Effect(game.getLevels().get(5).enemies, game.getHero());
 
-        game.getLevels().get(0).levelStatus();
+        game.getLevels().get(5).levelStatus();
 
-        game.getHero().getDeck().getCards().get(0).Effect(game.getLevels().get(0).enemies, game.getHero());
+        game.getHero().getDeck().getCards().get(0).Effect(game.getLevels().get(5).enemies, game.getHero());
 
-        game.getLevels().get(0).levelStatus();
+        game.getLevels().get(5).levelStatus();
     }
 }

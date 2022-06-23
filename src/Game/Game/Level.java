@@ -18,7 +18,7 @@ public class Level {
     public static Level generateLevel(Integer level, File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         Level currentLevel = new Level();
-    
+
         while (!scanner.nextLine().equals(level.toString())) {
         }
 

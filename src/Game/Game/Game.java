@@ -9,17 +9,20 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    public static File file = new File("levels.txt");
+    public static File monsterLevelsFile = new File("MonsterLevels.txt");
     private Hero hero;
     private List<Level> levels = new ArrayList<>();
 
     public Game() throws FileNotFoundException {
         this.hero = new Hero();
-        Scanner scanner = new Scanner(file);
+        Scanner scanner = new Scanner(monsterLevelsFile);
         Integer level = 1;
         while (scanner.hasNext()) {
-            this.levels.add(Level.generateLevel(level, file));
-            level += 1;
+            String line = scanner.nextLine();
+            if (line.equals(level.toString())) {
+                this.levels.add(Level.generateLevel(level, monsterLevelsFile));
+                level += 1;
+            }
         }
     }
 
