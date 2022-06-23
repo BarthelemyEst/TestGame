@@ -1,14 +1,20 @@
 package Game.Enemy;
 
+import Game.Enemy.Move.Hit;
+import Game.Enemy.Move.Move;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Enemy {
     private String name;
     private int HP;
-    private int damage;
+    private int shield = 0;
+    private List<Move> moves = new ArrayList<>();
 
-    public Enemy(String name, int HP, int damage) {
+    public Enemy(String name, int HP) {
         this.name = name;
         this.HP = HP;
-        this.damage = damage;
     }
 
     public void changeHP(int damage) {
@@ -31,11 +37,23 @@ public class Enemy {
         this.HP = HP;
     }
 
-    public int getDamage() {
-        return damage;
+    public int getShield() {
+        return shield;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setShield(int shield) {
+        this.shield = shield;
+    }
+
+    public void addShield(int shield) {
+        this.shield += shield;
+    }
+
+    public List<Move> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(List<Move> moves) {
+        this.moves = moves;
     }
 }

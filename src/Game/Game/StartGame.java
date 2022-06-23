@@ -4,16 +4,17 @@ package Game.Game;
 import Game.Enemy.Enemy;
 
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class StartGame {
     public static void startGame() throws FileNotFoundException {
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
-        Integer level = 1;
+        Integer level = 5;
         boolean skip = false;
         int Round = 1;
-        while (!game.getLevels().get(level).isLevelFinished()) {
+        while (!game.getLevels().get(level).isLevelFinished(game)) {
             game.getHero().beginRound(Round);
             System.out.println(game.getHero().getHand());
             skip = false;
@@ -40,7 +41,10 @@ public class StartGame {
                 }
             }
             for (Enemy enemy : game.getLevels().get(level).getEnemies()) {
-                game.getHero().reduceHP(enemy.getDamage());
+                Random random = new Random();
+                int Atk = random.nextInt(0, enemy.getMoves().size());
+                System.out.println("Atk de : " + enemy.getName() + " est : " + Atk);
+                enemy.getMoves().get(Atk).Action(game);
             }
         }
     }
