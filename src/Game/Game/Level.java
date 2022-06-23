@@ -60,8 +60,23 @@ public class Level {
     }
 
     public void levelStatus() {
-        for (Enemy enemy : this.enemies) {
-            System.out.println(enemy.getName() + " : " + enemy.getHP());
+        if (!this.enemies.isEmpty()) {
+            for (Enemy enemy : this.enemies) {
+                System.out.println(enemy.getName() + " : " + enemy.getHP());
+            }
         }
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public boolean isLevelFinished() {
+        for (Enemy enemy : this.enemies) {
+            if (enemy.getHP() > 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
