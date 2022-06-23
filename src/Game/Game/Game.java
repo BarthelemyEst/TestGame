@@ -41,4 +41,9 @@ public class Game {
     public void setLevels(List<Level> levels) {
         this.levels = levels;
     }
+
+    public void gameStatus(Integer level) {
+        this.getLevels().get(level).levelStatus();
+        this.getHero().heroStatus();
+    }
 }
